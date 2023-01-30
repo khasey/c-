@@ -6,17 +6,17 @@
 #    By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 16:34:02 by kthierry          #+#    #+#              #
-#    Updated: 2023/01/19 16:34:05 by kthierry         ###   ########.fr        #
+#    Updated: 2023/01/30 22:02:10 by kthierry         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRCS = Contact.cpp PhoneBook.cpp main.cpp
+SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 all: $(NAME)
 

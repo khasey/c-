@@ -6,59 +6,92 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:36:44 by kthierry          #+#    #+#             */
-/*   Updated: 2023/01/19 16:36:47 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/01/30 22:01:54 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Contact.hpp"
 
-const std::string&	Contact::get_firstname() const
+void Contact::get_firstname()
 {
-	return (this->firstname);
+	std::cout << "Enter your firstname: ";
+	getline(std::cin, firstname);
+	// std::cout << std::endl;
+}
+void Contact::get_lastname()
+{
+	std::cout << "Enter your lastname: ";
+	getline(std::cin, lastname);
+	// std::cout << std::endl;
+}
+void Contact::get_nickname()
+{
+	std::cout << "Enter your nickname: ";
+	getline(std::cin, nickname);
+	// std::cout << std::endl;
+}
+void Contact::get_secret()
+{
+	std::cout << "Enter your darkest secret: ";
+	getline(std::cin, secret);
+	// std::cout << std::endl;
+}
+void Contact::get_number()
+{
+	std::cout << "Enter your phone number: ";
+	getline(std::cin, number);
+	// std::cout << std::endl;
+}
+void Contact::show_firstname() const
+{
+	/*utilisation de setw pour restreindre le nombre de caractères 
+	extraits de l’objet firstname*/
+	if(firstname.length() > 10)
+		std::cout << std::setw(9) << firstname.substr(0, 9) << ".";	
+	else
+	{
+		int line = firstname.length();
+		line = 10 - line;
+		std::cout << std::setw(line) << " " << firstname;
+	}
+}
+void Contact::show_lastname() const
+{
+	if(lastname.length() > 10)
+		std::cout << std::setw(9) << lastname.substr(0, 9) << ".";
+	else
+	{
+		int line = lastname.length();
+		line = 10 - line;
+		std::cout << std::setw(line) << " " << lastname;
+	}
+}
+void Contact::show_nickname() const
+{
+	if(nickname.length() > 10)
+		std::cout << std::setw(9) << nickname.substr(0, 9) << ".";
+	else
+	{
+		int line = nickname.length();
+		line = 10 - line;
+		std::cout << std::setw(line) << " " << nickname;
+	}
 }
 
-const std::string&	Contact::get_lastname() const
+void Contact::show_contacts() const
 {
-	return (this->lastname);
+	std::cout << "Firstname: " << firstname << std::endl;
+	std::cout << "Lastname: " << lastname << std::endl;
+	std::cout << "Nickname: " << nickname << std::endl;
+	std::cout << "Dark secret: " << secret << std::endl;
+	std::cout << "Phone number: " << number << std::endl;
 }
-
-const std::string&	Contact::get_nickname() const
+void Contact::clear_contacts()
 {
-	return (this->nickname);
-}
-
-const std::string&	Contact::get_secret() const
-{
-	return (this->secret);
-}
-
-const std::string&	Contact::get_number() const
-{
-	return (this->number);
-}
-
-void		Contact::set_firstname(std::string firstname)
-{
-	this->firstname = firstname;
-}
-
-void		Contact::set_lastname(std::string lastname)
-{
-	this->lastname = lastname;
-}
-
-void		Contact::set_nickname(std::string nickname)
-{
-	this->nickname = nickname;
-}
-
-void		Contact::set_secret(std::string secret)
-{
-	this->secret = secret;
-}
-
-void		Contact::set_number(std::string number)
-{
-	this->number = number;
+	firstname.clear();
+	lastname.clear();
+	nickname.clear();
+	secret.clear();
+	number.clear();
 }

@@ -6,7 +6,7 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:37:43 by kthierry          #+#    #+#             */
-/*   Updated: 2023/01/19 16:38:00 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:46:32 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 #include "Contact.hpp"
 #include <iostream>
 
+#define c_pre "\001\033[1;34m\002"
+#define c_pos "\001\033[0;0m\002"
+
 class PhoneBook {
 private:
 	Contact	contacts[8];
 	int 	size;
 	int 	index;
 public:
-	PhoneBook() : size (0), index (0) {}
+	PhoneBook();
 	int 	get_size(void) const;
-	void	add_contact(std::string data[5]);
+	void	add_contact();
 	void	display_contact(int i) const;
 	void	display_phonebook(void) const;
 };

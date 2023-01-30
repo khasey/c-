@@ -6,13 +6,15 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:35:50 by kthierry          #+#    #+#             */
-/*   Updated: 2023/01/19 16:40:13 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:27:56 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <string>
+#include <iostream>
+#include <iomanip>
 
 class Contact {
 private:
@@ -22,14 +24,14 @@ private:
 	std::string	secret;
 	std::string	number;
 public:
-	const std::string&	get_firstname(void) const;
-	const std::string&	get_lastname(void) const;
-	const std::string&	get_nickname(void) const;
-	const std::string&	get_secret(void) const;
-	const std::string&	get_number(void) const;
-	void				set_firstname(std::string firstname);
-	void				set_lastname(std::string lastname);
-	void				set_nickname(std::string nickname);
-	void				set_secret(std::string secret);
-	void				set_number(std::string number);
+	void get_firstname();
+	void get_lastname();
+	void get_nickname();
+	void get_secret();
+	void get_number();
+	void show_firstname() const;
+	void show_lastname() const;
+	void show_nickname() const;
+	void show_contacts() const;
+	void clear_contacts();
 };
