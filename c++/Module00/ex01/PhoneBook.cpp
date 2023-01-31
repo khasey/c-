@@ -6,12 +6,13 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:38:46 by kthierry          #+#    #+#             */
-/*   Updated: 2023/01/30 22:59:27 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/01/31 19:38:06 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
+/*this represente l instance courante : celle qui fait l appel a la methode*/
+/*le constructeur*/
 PhoneBook::PhoneBook() : size (0), index (0) {
 	
 }

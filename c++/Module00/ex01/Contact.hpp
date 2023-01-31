@@ -6,7 +6,7 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:35:50 by kthierry          #+#    #+#             */
-/*   Updated: 2023/01/30 21:27:56 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/01/31 19:17:59 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 #include <iomanip>
 
 class Contact {
+/*les attributs sont private*/
 private:
 	std::string	firstname;
 	std::string	lastname;
 	std::string	nickname;
 	std::string	secret;
 	std::string	number;
+
+/*les methodes sont public*/
 public:
 	void get_firstname();
 	void get_lastname();
