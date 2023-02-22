@@ -6,7 +6,7 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:37:59 by kthierry          #+#    #+#             */
-/*   Updated: 2023/02/16 17:00:59 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:29:15 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Animal
         Animal();
         Animal(const Animal& src);
         Animal& operator=(const Animal& rhs);
-        virtual ~Animal() =	0;
+        virtual ~Animal();
         virtual std::string getType() const;
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
     protected:
         std::string _type;    
 };
@@ -72,4 +72,7 @@ class Cat : public Animal
 	private:
 		Brain* brain;	  
 };
+
+
+
 
