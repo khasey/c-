@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 12:55:17 by kthierry          #+#    #+#             */
-/*   Updated: 2023/02/23 11:39:46 by kthierry         ###   ########.fr       */
+/*   Created: 2023/02/22 12:55:22 by kthierry          #+#    #+#             */
+/*   Updated: 2023/02/22 13:08:12 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,15 @@
 #include <string>
 #include "Form.hpp"
 
-class Form;
-
-class PresidentialPardonForm : public Form
+class RobotomyRequestForm : public Form
 {
-
 	private:
 		std::string _target;
 	public:
-		PresidentialPardonForm();
-		PresidentialPardonForm(std::string target);
-		PresidentialPardonForm(PresidentialPardonForm const & src);
-		~PresidentialPardonForm();
-		PresidentialPardonForm & operator=(PresidentialPardonForm const & rhs);
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(RobotomyRequestForm const & src);
+		~RobotomyRequestForm();
+		RobotomyRequestForm & operator=(RobotomyRequestForm const & rhs);
 		void execute(Bureaucrat const & executor) const;
-		
-		class NotSignedException : public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Form is not signed");
-				}
-		};
 };

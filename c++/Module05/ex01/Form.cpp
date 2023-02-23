@@ -6,7 +6,7 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:11:06 by kthierry          #+#    #+#             */
-/*   Updated: 2023/02/21 13:40:34 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:12:22 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,10 @@ Form::Form() : _name("default"), _gradeToSign(150), _gradeToExecute(150)
 Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
     std::cout << c_pre << "--- / Form constructor called / ---" << c_pos << std::endl;
-    try
-    {
-        if (gradeToSign < 1 || gradeToExecute < 1)
-            throw Form::GradeTooHighException();
-        else if (gradeToSign > 150 || gradeToExecute > 150)
-            throw Form::GradeTooLowException();
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << c_red << e.what() << c_pos << std::endl;
-    }
+    if (gradeToSign < 1 || gradeToExecute < 1)
+    	throw Form::GradeTooHighException();
+    else if (gradeToSign > 150 || gradeToExecute > 150)
+        throw Form::GradeTooLowException();
     _signed = false;
 }
 
@@ -77,7 +70,9 @@ void Form::beSigned(Bureaucrat const &b)
 {
     if (b.getGrade() > this->_gradeToSign)
         throw Form::GradeTooLowException();
-    else
+    else if(b.getGrade() < this->_gradeToSign)
+		throw Form::GradeTooHighException();
+	else
         this->_signed = true;
 }
 

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 14:37:08 by kthierry          #+#    #+#             */
-/*   Updated: 2023/02/23 11:13:10 by kthierry         ###   ########.fr       */
+/*   Created: 2023/02/23 12:50:59 by kthierry          #+#    #+#             */
+/*   Updated: 2023/02/23 12:54:53 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Intern.hpp"
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
 
-int main()
+Form* Intern::makeForm(std::string name, std::string target)
 {
-	try
-	{
-    	Form f("Form", 2, 2);
-    	Bureaucrat b("Chuck Norris", 2);
-    	std::cout << f;
-    	std::cout << b;
-    	b.signForm(f);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << c_red << e.what() << c_pos << std::endl;
-	}
-    return 0;
+	if (name == "presidential pardon")
+		return new PresidentialPardonForm(target);
+	else if (name == "robotomy request")
+		return new RobotomyRequestForm(target);
+	else if (name == "shrubbery creation")
+		return new ShrubberyCreationForm(target);
+	else
+		throw Intern::UnknownFormException();
 }

@@ -6,7 +6,7 @@
 /*   By: kthierry <kthierry@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:37:01 by kthierry          #+#    #+#             */
-/*   Updated: 2023/02/21 13:55:49 by kthierry         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:03:39 by kthierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,10 @@ Bureaucrat::Bureaucrat() : _name("default")
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
     std::cout << c_pre << "--- / Bureaucrat constructor called / ---" << c_pos << std::endl;
-    try
-    {
         if (grade < 1)
             throw Bureaucrat::GradeTooHighException();
         else if (grade > 150)
             throw Bureaucrat::GradeTooLowException();
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << c_red << e.what() << c_pos << std::endl;
-    }
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
